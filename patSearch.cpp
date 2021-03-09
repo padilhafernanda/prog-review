@@ -24,7 +24,7 @@ Output: Pattern found at index 0
 */
 
 
-void rkSearch(char pat[], char txt[]){
+void patSearch(char pat[], char txt[]){
     int patSize = strlen(pat);
     int txtSize = strlen(txt);
     char aux[patSize];
@@ -48,8 +48,8 @@ void rkSearch(char pat[], char txt[]){
 /* Driver Code */
 int main() 
 { 
-   // char txt[] = "GEEKS FOR GEEKS"; 
-  // char pat[] = "GEEK";
+   char txt[] = "GEEKS FOR GEEKS"; 
+   char pat[] = "GEEK";
    
   //  char txt[] = "THIS IS A TEST TEXT";
  //   char pat[] = "TEST";
@@ -58,7 +58,7 @@ int main()
    // char pat[] =  "AABA";
 
       // function call 
-    rkSearch(pat, txt); 
+    patSearch(pat, txt); 
     return 0; 
 } 
 
