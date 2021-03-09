@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 /*
@@ -22,16 +23,43 @@ Output: Pattern found at index 0
    
 */
 
+
+void rkSearch(char pat[], char txt[]){
+    int patSize = strlen(pat);
+    int txtSize = strlen(txt);
+    char aux[patSize];
+
+
+    for (int i=0; i<=txtSize; i++){
+        
+        for (int j=0; j< patSize; j++){
+            aux[j]=txt[i+j];
+        }
+    
+        if (strncmp(pat,aux,patSize)==0) {
+            cout << "Pattern found at index " << i << endl;
+        }
+    }
+    
+};
+
+
+
 /* Driver Code */
 int main() 
 { 
-    char txt[] = "GEEKS FOR GEEKS"; 
-    char pat[] = "GEEK"; 
-    
-      // A prime number 
-    int q = 101;  
-    
+   // char txt[] = "GEEKS FOR GEEKS"; 
+  // char pat[] = "GEEK";
+   
+  //  char txt[] = "THIS IS A TEST TEXT";
+ //   char pat[] = "TEST";
+
+   // char txt[] =  "AABAACAADAABAABA";
+   // char pat[] =  "AABA";
+
       // function call 
-    search(pat, txt, q); 
+    rkSearch(pat, txt); 
     return 0; 
 } 
+
+
