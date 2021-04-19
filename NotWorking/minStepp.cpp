@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /* 
@@ -19,31 +20,92 @@ If it is not possible to come out from the grid,
 then print -1. 
 
 */
-class BST{
-    
+typedef struct Node;
+struct Node{
     int data;
-    BST *left,*right;
+    Node *left,*right;
+}
+
+class ScapeTheGrid{
+    
+    private:
+        vector<vector<int>> grid;
+        Node *root;    
+    
     
     public:
+
         BST();
         BST(int);
-        BST *Insert(BST*,int);
-        void Sort(BST*);
+        BST *Insert(Node*,int);
+        //void Sort(BST*);
     
 };
-void minStep(int mat){
-    BstNode *rootPtr;
-}
+void minStep(vector<vector<int>> grid){
+   
+    int *steps=0;
+    int path=0;
+    int i=0;
+    int j=0;
+    
+    while( i<rows){
+        while ( j< cols){
+           
+            //person 
+            if (grid[i][j]==1){ 
+                checkPosic(i,j);
+                path = cols-1-j;
+                
+                // find way out through right border
+                if (path<j) { 
+                    
+                    if (grid[i][j+1]==0||grid[i+1][j]==0||grid[i-1][j]==0) {
+                        steps++;
+                        checkPosic(i,j);
+                    }
+                    
+                    else {
+                        //fire 
+                        
+                        if (grid[i][j]==2) {
+                            grid[i][j+1]=2;
+                            grid[i][j-1]=2;    
+                            
+                        
+                            
+                        }
+                    }
+                }
+                // find way out through left border        
+                else 
+            }
+        
+
+        }
+    }
+};
+
+int findPosic(int i, int j){
+    if (j==0||j==cols-1) {
+        cout << "number of steps " << steps << endl;
+        return 0; // already on borders 
+    }
+        
+    
+    // empty space 
+    if (grid[i][j]==0) 
+            
+            
+};
 
 // Driver Code
 int main() 
 {
  
     // Given grid
-   int *mat= (int *)malloc(sizeof(int));
-   mat = { { 0, 0, 0, 0 }, { 2, 0, 0, 0 }, { 2, 1, 0, 0 }, { 2, 2, 0, 0 } } ;
+   vector<vector<int>> grid= { { 0, 0, 0, 0 }, { 2, 0, 0, 0 }, { 2, 1, 0, 0 }, { 2, 2, 0, 0 } } ;
    
- //minStep(mat);
+    minStep(grid);
     cout<<0;
     return 0;
 }
